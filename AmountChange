@@ -1,0 +1,39 @@
+import java.util.Scanner; // Imports the Scanner class for user input
+
+public class AmountChange {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Creates a Scanner object
+
+        System.out.print("Enter the purchase amount (between 1 to 100): "); // Prompts user for input
+
+        int purchase = scanner.nextInt(); // Reads user input for purchase amount
+
+        // Validates input:
+        if (purchase < 1 || purchase > 100) { // Checks if purchase is within range
+            System.out.println("Enter amount between 1 to 100"); // Error message for invalid input
+        } else {
+            int change = 100 - purchase; // Calculates total change needed
+
+            // Calculate and display change breakdown:
+            int quarters = change / 25; // Calculates number of quarters
+            change %= 25; // Updates remaining change after quarters
+
+            int dimes = change / 10; // Calculates number of dimes
+            change %= 10; // Updates remaining change after dimes
+
+            int nickels = change / 5; // Calculates number of nickels
+            change %= 5; // Updates remaining change after nickels
+
+            int pennies = change; // Remaining change is all pennies
+
+            System.out.println("Your change is: " +
+                    "Quarters: " + quarters +
+                    ", Dimes: " + dimes +
+                    ", Nickels: " + nickels +
+                    ", Pennies: " + pennies);
+        }
+
+        scanner.close(); // Closes the Scanner object
+    }
+}
